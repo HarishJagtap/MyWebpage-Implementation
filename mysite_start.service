@@ -2,7 +2,7 @@
 Description=MyWebpage Start service
 
 [Service]
-ExecStart=/var/www/MyWebpage-Implementation/mysite_restart.sh
+ExecStart=/var/www/MyWebpage-Implementation/site_manager.sh -restart-site
 
 [Install]
 WantedBy=multi-user.target
