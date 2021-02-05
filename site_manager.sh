@@ -46,7 +46,6 @@ myWebpage_setup () {
   cd "${GIT_CLONE_PATH}MyWebpage/"
   pip3 install -r requirements.txt
   cd mywebsite
-  export SECRET_KEY="${DJANGO_SECRET_KEY}"
   python3 manage.py collectstatic
   python3 manage.py makemigrations
   python3 manage.py migrate --run-syncdb
@@ -132,6 +131,7 @@ cleanup () {
   rm /etc/systemd/system/mysite_start.service
 }
 
+export SECRET_KEY="${DJANGO_SECRET_KEY}"
 
 if [ "$DJANGO_SECRET_KEY" = '|Remove this and add Secret key|' ]; then
   echo "ERROR:"
