@@ -1,0 +1,8 @@
+[Unit]
+Description=MyWebpage Start service
+
+[Service]
+ExecStart=/var/www/MyWebpage-Implementation/mysite_restart.sh
+
+[Install]
+WantedBy=multi-user.target
