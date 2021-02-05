@@ -21,7 +21,9 @@ fi
 
 if [ "$1" = '--help' ]
 then
-  echo "Avaiable options\n"
+  echo ""
+  echo "Available options"
+  echo ""
   echo "  -install-apt-packages"
   echo "  -add-temp-nginx-config"
   echo "  -add-nginx-config"
@@ -33,6 +35,7 @@ then
   echo "  -restart-site"
   echo "  -stop-site"
   echo "  -cleanup"
+  echo ""
 
 elif [ "$1" = "-install-apt-packages" ]
 then
