@@ -39,47 +39,47 @@ then
 
 elif [ "$1" = "-install-apt-packages" ]
 then
-  install_packages
+  install_packages()
   
 elif [ "$1" = "-add-temp-nginx-config" ]
 then
-  temp_nginx_conf
+  temp_nginx_conf()
   
 elif [ "$1" = "-add-nginx-config" ]
 then
-  nginx_conf
+  nginx_conf()
 
 elif [ "$1" = "-clone-repo" ]
 then
-  git_clone
+  git_clone()
 
 elif [ "$1" = "-setup-django" ]
 then
-  myWebpage_setup
+  myWebpage_setup()
 
 elif [ "$1" = "-add-startup-service" ]
 then
-  add_startup_service
+  add_startup_service()
   
 elif [ "$1" = "-setup-certbot" ]
 then
-  certbot_setup
+  certbot_setup()
   
 elif [ "$1" = "-init" ]
 then
-  init
+  init()
   
 elif [ "$1" = "-restart-site" ]
 then
-  restart_website
+  restart_website()
   
 elif [ "$1" = "-stop-site" ]
 then
-  stop_website
+  stop_website()
   
 elif [ "$1" = "-cleanup" ]
 then
-  cleanup
+  cleanup()
 
 fi
 
