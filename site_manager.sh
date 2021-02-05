@@ -36,42 +36,42 @@ if [ "$1" = '--help' ]; then
   echo ""
 
 elif [ "$1" = "-install-apt-packages" ]; then
-  install_packages()
+  install_packages
   
 elif [ "$1" = "-add-temp-nginx-config" ]; then
-  temp_nginx_conf()
+  temp_nginx_conf
   
 elif [ "$1" = "-add-nginx-config" ]; then
-  nginx_conf()
+  nginx_conf
 
 elif [ "$1" = "-clone-repo" ]; then
-  git_clone()
+  git_clone
 
 elif [ "$1" = "-setup-django" ]; then
-  myWebpage_setup()
+  myWebpage_setup
 
 elif [ "$1" = "-add-startup-service" ]; then
-  add_startup_service()
+  add_startup_service
   
 elif [ "$1" = "-setup-certbot" ]; then
-  certbot_setup()
+  certbot_setup
   
 elif [ "$1" = "-init" ]; then
-  init()
+  init
   
 elif [ "$1" = "-restart-site" ]; then
-  restart_website()
+  restart_website
   
 elif [ "$1" = "-stop-site" ]; then
-  stop_website()
+  stop_website
   
 elif [ "$1" = "-cleanup" ]; then
-  cleanup()
+  cleanup
 
 fi
 
 
-install_packages() {
+install_packages () {
   echo "-------------------------------Installing apt packages-------------------------------------------"
   apt update
   apt-get install nginx
@@ -79,28 +79,28 @@ install_packages() {
   pip3 install gunicorn
 }
 
-nginx_conf() {
+nginx_conf () {
   echo "--------------------------Adding Nginx Configuration----------------------------------"
   cd $SCRIPTS_PATH
   mkdir -p $NGINX_CONF_PATH
   cp nginx.conf "${NGINX_CONF_PATH}nginx.conf"
 }
 
-temp_nginx_conf() {
+temp_nginx_conf () {
   echo "--------------------------Adding Temporary HTTP Nginx Configuration----------------------------------"
   cd $SCRIPTS_PATH
   mkdir -p $NGINX_CONF_PATH
   cp nginx_temp.conf "${NGINX_CONF_PATH}nginx.conf"
 }
 
-git_clone() {
+git_clone () {
   echo "-------------------------------Cloning Webpage Repo---------------------------------------"
   mkdir -p $GIT_CLONE_PATH
   cd $GIT_CLONE_PATH
   git clone https://github.com/HarishJagtap/MyWebpage.git
 }
 
-myWebpage_setup() {
+myWebpage_setup () {
   echo "------------------------------Setting up Django---------------------------------------"
   cd "${GIT_CLONE_PATH}MyWebpage/"
   pip3 install -r requirements.txt
@@ -112,7 +112,7 @@ myWebpage_setup() {
   python3 manage.py createsuperuser
 }
 
-add_startup_service() {
+add_startup_service () {
   echo "-----------------------------------Adding Startup Service------------------------------------"
   cd $SCRIPTS_PATH
   cp mysite_start.service /etc/systemd/system/mysite_start.service
@@ -120,7 +120,7 @@ add_startup_service() {
   systemctl enable mysite_start
 }
 
-certbot_setup() {
+certbot_setup () {
   echo "----------------------------Setting up Certbot-------------------------------------"
   snap install core
   snap refresh core
@@ -132,7 +132,7 @@ certbot_setup() {
   certbot certonly -a manual -i nginx -d $DOMAIN,"*.${DOMAIN}"
 }
 
-init() {
+init () {
   echo "-----------------------------Initialising--------------------------------------"
   apt-get install dos2unix
   
@@ -141,7 +141,7 @@ init() {
   dos2unix *
 }
 
-restart_website() {
+restart_website () {
   echo "---------------------------Restarting website-------------------------------------"
   stop_website
 
@@ -153,7 +153,7 @@ restart_website() {
   gunicorn mywebsite.wsgi > /dev/null 2>&1 &
 }
 
-stop_website() {
+stop_website () {
   echo "------------------------Stopping website------------------------------------"
 
   for pid in $(ps aux | grep '[g]unicorn' | awk '{print $2}')
@@ -169,7 +169,7 @@ stop_website() {
   done
 }
 
-cleanup() {
+cleanup () {
   # Remove certbot
   echo "----------------------------Removing Certbot---------------------------"
   snap remove certbot
