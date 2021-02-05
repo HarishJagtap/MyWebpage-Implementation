@@ -12,15 +12,13 @@ DOMAIN="harish-jagtap.com"
 DJANGO_SECRET_KEY='|Remove this and add Secret key|'
 
 
-if [ "$DJANGO_SECRET_KEY" = '|Remove this and add Secret key|' ]
-then
+if [ "$DJANGO_SECRET_KEY" = '|Remove this and add Secret key|' ]; then
   echo "ERROR:"
   echo "Set the DJANGO_SECRET_KEY variable to 'New secret key' before running this script"
   exit 1
 fi
 
-if [ "$1" = '--help' ]
-then
+if [ "$1" = '--help' ]; then
   echo ""
   echo "Available options"
   echo ""
@@ -37,48 +35,37 @@ then
   echo "  -cleanup"
   echo ""
 
-elif [ "$1" = "-install-apt-packages" ]
-then
+elif [ "$1" = "-install-apt-packages" ]; then
   install_packages()
   
-elif [ "$1" = "-add-temp-nginx-config" ]
-then
+elif [ "$1" = "-add-temp-nginx-config" ]; then
   temp_nginx_conf()
   
-elif [ "$1" = "-add-nginx-config" ]
-then
+elif [ "$1" = "-add-nginx-config" ]; then
   nginx_conf()
 
-elif [ "$1" = "-clone-repo" ]
-then
+elif [ "$1" = "-clone-repo" ]; then
   git_clone()
 
-elif [ "$1" = "-setup-django" ]
-then
+elif [ "$1" = "-setup-django" ]; then
   myWebpage_setup()
 
-elif [ "$1" = "-add-startup-service" ]
-then
+elif [ "$1" = "-add-startup-service" ]; then
   add_startup_service()
   
-elif [ "$1" = "-setup-certbot" ]
-then
+elif [ "$1" = "-setup-certbot" ]; then
   certbot_setup()
   
-elif [ "$1" = "-init" ]
-then
+elif [ "$1" = "-init" ]; then
   init()
   
-elif [ "$1" = "-restart-site" ]
-then
+elif [ "$1" = "-restart-site" ]; then
   restart_website()
   
-elif [ "$1" = "-stop-site" ]
-then
+elif [ "$1" = "-stop-site" ]; then
   stop_website()
   
-elif [ "$1" = "-cleanup" ]
-then
+elif [ "$1" = "-cleanup" ]; then
   cleanup()
 
 fi
