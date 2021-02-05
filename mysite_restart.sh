@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Run this script as SU
 
 WSGI_PATH="/var/www/MyWebpage/mywebsite"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Run this script as SU
 
 NGINX_CONF_PATH="/etc/nginx/"

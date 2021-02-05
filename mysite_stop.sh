@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Run this script as SU
 
 for pid in $(ps aux | grep '[g]unicorn' | awk '{print $2}')
