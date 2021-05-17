@@ -11,8 +11,8 @@ Web client <-> Web server <-> Wsgi <-> Django
   * Use an Elastic IP (Static IP) to prevent IP address change when stopping/starting instance.
   * Add an SSH Inbound rule with "Your IP" as source to access it.
   * Add HTTP and HTTPS Inbound rules with "All" as source for web browsers to access it.
-  * SSH into it, git clone the <a href="https://github.com/HarishJagtap/MyWebpage">"MyWebpage project"</a> in "/var/www/" directory.
-  * Follow steps mentioned in <a href="https://github.com/HarishJagtap/MyWebpage">"MyWebpage project"</a> to setup the webpage.
+  * SSH into it, git clone the <a href="https://github.com/HarishJagtap/Website-Builder">"Website Builder Project"</a> in "/var/www/" directory.
+  * Follow steps mentioned in <a href="https://github.com/HarishJagtap/Website-Builder">"Website Builder Project"</a> to setup the webpage.
   * Now intead of Django, use Gunicorn or Uwsgi for the Wsgi.
   * This completes (Wsgi <-> Django)
   
