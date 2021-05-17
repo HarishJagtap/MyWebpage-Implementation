@@ -1,6 +1,6 @@
 ## Intro
 
-This is my implementation of my <a href="https://github.com/HarishJagtap/MyWebpage">"MyWebpage project"</a>.
+This is an implementation of my <a href="https://github.com/HarishJagtap/Website-Builder">"Website Builder Project"</a>.
 Using AWS for the implementation.
 
 ## Main Steps
